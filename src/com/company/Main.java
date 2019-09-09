@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,8 +10,12 @@ public class Main {
 
         int beginning=0;
         int ending=0;
-        String S="d8";
+        //String S="";
         String subs="";
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter your password.");
+        //String passw;
+        String S=input.nextLine();
 
         boolean number=false;
         boolean uppercase=false;
