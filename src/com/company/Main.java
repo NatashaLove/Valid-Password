@@ -14,10 +14,9 @@ public class Main {
         String subs="";
         Scanner input=new Scanner(System.in);
         System.out.println("Enter your password.");
-        //String passw;
+
         String S=input.nextLine();
 
-        boolean number=false;
         boolean uppercase=false;
 
         for (int i=0; i<S.length();i++){
@@ -25,11 +24,38 @@ public class Main {
            // if (Character.isUpperCase(S(i)){}
             {
                 uppercase=true;
-                //continue;
+                break;//if at least 1 uppercase - good, enough.
                 //System.out.println("Invalid Password. Please try again.");
             }
         }
         if (!uppercase)
         {System.out.println("Invalid Password. Please try again.");}
+        else
+        {
+            for (int i=0; i<S.length();i++) {
+
+                boolean number;
+                try{
+                    Integer.parseInt(String.valueOf(S.charAt(i)));
+                    number=true;
+                } catch (NumberFormatException e){
+                    number=false;
+                    System.out.println("Password will start with "+S.charAt(i));
+                    subs=S.substring(i);
+                    beginning=i;
+                    break;//because found the first
+                }
+                /*
+                if (!number){
+                    beginning=i;
+                    System.out.println("Password will start with "+S.charAt(i));
+                    subs=S.substring(i);
+                }
+
+                 */
+
+            }
+
+        }
     }
 }
