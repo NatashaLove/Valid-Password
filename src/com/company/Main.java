@@ -18,7 +18,7 @@ public class Main {
         String S=input.nextLine();
 
         boolean uppercase=false;
-
+//check if there is uppercase
         for (int i=0; i<S.length();i++){
             if (Character.isUpperCase(S.charAt(i)))
            // if (Character.isUpperCase(S(i)){}
@@ -30,7 +30,7 @@ public class Main {
         }
         if (!uppercase)
         {System.out.println("Invalid Password. Please try again.");}
-        else
+        if (uppercase)
         {
             for (int i=0; i<S.length();i++) {
 
@@ -56,13 +56,15 @@ public class Main {
                         if (number){
 
                             ending=j-1;
+                            break;
                         }
 
-                            for (int a=0;a<=ending;a++) {
+                            for (int a=beginning;a<ending;a++) {
                                 if (Character.isUpperCase(subs.charAt(a))) {
                                     subs=S.substring(beginning, ending);
 
-                                    System.out.println("Password will start with " + subs.charAt(0));
+                                    System.out.println("Password is: " + subs);
+                                    break;
 
                                 }
                                 else    {
