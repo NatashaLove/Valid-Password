@@ -40,10 +40,38 @@ public class Main {
                     number=true;
                 } catch (NumberFormatException e){
                     number=false;
-                    System.out.println("Password will start with "+S.charAt(i));
-                    subs=S.substring(i);
+                    // break;//because found the first
+                }
+                if (!number) {
+                    subs = S.substring(i);
                     beginning=i;
-                    break;//because found the first
+                    for (int j = 0; j < subs.length(); j++) {
+
+                        try{
+                            Integer.parseInt(String.valueOf(subs.charAt(j)));
+                            number=true;
+                        } catch (NumberFormatException e){
+                            number=false;
+                        }
+                        if (number){
+
+                            ending=j-1;
+                        }
+
+                            for (int a=0;a<=ending;a++) {
+                                if (Character.isUpperCase(subs.charAt(a))) {
+                                    subs=S.substring(beginning, ending);
+
+                                    System.out.println("Password will start with " + subs.charAt(0));
+
+                                }
+                                else    {
+                                    System.out.println("Something is wrong in the above code...");
+                                    break;
+                                }
+                            }
+
+                    }
                 }
                 /*
                 if (!number){
