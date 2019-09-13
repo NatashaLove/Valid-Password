@@ -9,6 +9,7 @@ public class Main {
 
         int beginning;
         int ending;
+        int indexNum;
         //String S="";
         String subs = "";
         String subs1="";
@@ -33,7 +34,7 @@ public class Main {
                     number = true;
                     System.out.println("There're numbers only in main string.Test1");
                     //index of number in the string password
-                    // final int indexNum=i;
+                   indexNum=i;
                 } catch (NumberFormatException e) {
                     number = false;
                     System.out.println("There's NON number char.Test1");
@@ -63,6 +64,8 @@ public class Main {
                     number = true;
                     System.out.println("There's a number in SUBs.Test3");
                     System.out.println("There's a number char at index " + j);
+                    //ending is a number!
+                    //next subs can loop starting after ending! - (ending+1)
                     ending = j;
                    subs1 = subs.substring(0, ending);
                     break;
