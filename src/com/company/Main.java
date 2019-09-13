@@ -7,11 +7,11 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-
-        int beginning = 0;
-        int ending = 0;
+        int beginning;
+        int ending;
         //String S="";
         String subs = "";
+        String subs1="";
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your password.");
 
@@ -37,8 +37,9 @@ public class Main {
                 } catch (NumberFormatException e) {
                     number = false;
                     System.out.println("There's NON number char.Test1");
-                    subs = S.substring(i);
+
                     beginning = i;
+                    subs = S.substring(beginning);
                     System.out.println("There's NON number char at index " + beginning+ ".Test2. "+ beginning+ " is equal to "+i);
 
                     break;//because found the first NON number char
@@ -62,7 +63,8 @@ public class Main {
                     number = true;
                     System.out.println("There's a number in SUBs.Test3");
                     System.out.println("There's a number char at index " + j);
-                    ending = j - 1;
+                    ending = j;
+                   subs1 = subs.substring(0, ending);
                     break;
 
                 } catch (NumberFormatException e) {
@@ -78,13 +80,19 @@ public class Main {
                 }
 
                  */
+                /*
+int	indexOf(String str)
+Returns the index within this string of the first occurrence of the specified substring.
+int indexOf(String str, int fromIndex)
+Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.
+                 */
       //CODE logically correct until here:
             //checking subs for uppercase:
             //this assignment is wrong - takes string from 0 index the very beginning....
-            subs = S.substring(beginning, ending);
-            System.out.println("This is the substring from the beginning to the end: "+ subs);
-            if (uppercase(subs)){
-                System.out.println("Password is: " + subs);
+          //  subs = S.substring(beginning, ending);
+            System.out.println("This is the substring from the beginning to the end: "+ subs1);
+            if (uppercase(subs1)){
+                System.out.println("Password is: " + subs1);
             }else {
                 System.out.println("Something is wrong in the above code...");
 
