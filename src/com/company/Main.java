@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
+        int separator=0;// index of a char which is a number(int) and separates strings- at the end of a string
         int beginning;
         int ending;
         int indexNum;
@@ -55,7 +56,7 @@ public class Main {
 
                  */
             }
-
+//TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS
 //checking substring for more numbers char
             for (int j = 0; j < subs.length(); j++) {
                 boolean number;
@@ -65,9 +66,10 @@ public class Main {
                     System.out.println("There's a number in SUBs.Test3");
                     System.out.println("There's a number char at index " + j);
                     //ending is a number!
-                    //next subs can loop starting after ending! - (ending+1)
+                    //next subs can loop starting after ending! - (ending+1)-from separator
                     ending = j;
                    subs1 = subs.substring(0, ending);
+                   separator=ending+1;
                     break;
 
                 } catch (NumberFormatException e) {
@@ -89,7 +91,7 @@ Returns the index within this string of the first occurrence of the specified su
 int indexOf(String str, int fromIndex)
 Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.
                  */
-
+  //!!MAKE METHOD OF IT FOR ALL OTHER SUBS!
             //checking subs for uppercase:
 
             System.out.println("This is the substring from the beginning to the end: "+ subs1);
