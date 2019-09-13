@@ -86,15 +86,16 @@ Returns the index within this string of the first occurrence of the specified su
 int indexOf(String str, int fromIndex)
 Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.
                  */
-      //CODE logically correct until here:
+
             //checking subs for uppercase:
-            //this assignment is wrong - takes string from 0 index the very beginning....
-          //  subs = S.substring(beginning, ending);
+
             System.out.println("This is the substring from the beginning to the end: "+ subs1);
             if (uppercase(subs1)){
                 System.out.println("Password is: " + subs1);
             }else {
-                System.out.println("Something is wrong in the above code...");
+                //if it's not
+                System.out.println("not uppercase..bad string..");
+                //should repeat (for the rest of the string - the same loop)
 
             }
 
