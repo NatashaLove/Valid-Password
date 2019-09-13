@@ -16,21 +16,14 @@ public class Main {
         System.out.println("Enter your password.");
 
         String S=input.nextLine();
+       // boolean uppercase=false;
+       // uppercase(S);
 
-        boolean uppercase=false;
-//check if there is uppercase
-        for (int i=0; i<S.length();i++){
-            if (Character.isUpperCase(S.charAt(i)))
-           // if (Character.isUpperCase(S(i)){}
-            {
-                uppercase=true;
-                break;//if at least 1 uppercase - good, enough.
-                //System.out.println("Invalid Password. Please try again.");
-            }
-        }
-        if (!uppercase)
+        if (!uppercase(S))
         {System.out.println("Invalid Password. Please try again.");}
-        if (uppercase)
+
+        //if string contains Uppercase (meets one condition) - look for a number in the string:
+        else if (uppercase(S))
         {
             for (int i=0; i<S.length();i++) {
 
@@ -40,7 +33,7 @@ public class Main {
                     number=true;
                 } catch (NumberFormatException e){
                     number=false;
-                    // break;//because found the first
+                    // break;//because found the first number
                 }
                 if (!number) {
                     subs = S.substring(i);
@@ -58,6 +51,7 @@ public class Main {
                             ending=j-1;
                             break;
                         }
+                        //too many for loops (inside) - need to separate
 
                             for (int a=beginning;a<ending;a++) {
                                 if (Character.isUpperCase(subs.charAt(a))) {
@@ -87,5 +81,22 @@ public class Main {
             }
 
         }
+    }
+
+    //check if there is uppercase- method
+   public static boolean uppercase (String St){
+       boolean uCase = false;
+       for (int i = 0; i < St.length(); i++) {
+
+            if (Character.isUpperCase(St.charAt(i)))
+            // if (Character.isUpperCase(S(i)){}
+            {
+                uCase = true;
+                break;//if at least 1 uppercase - good, enough.
+                //System.out.println("Invalid Password. Please try again.");
+            }
+        }
+       final boolean uCase1 = uCase;
+       return uCase1;
     }
 }
