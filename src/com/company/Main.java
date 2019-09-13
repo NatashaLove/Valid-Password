@@ -31,7 +31,7 @@ public class Main {
                 try {
                     Integer.parseInt(String.valueOf(S.charAt(i)));
                     number = true;
-                    System.out.println("There're numbers only.Test1");
+                    System.out.println("There're numbers only in main string.Test1");
                     //index of number in the string password
                     // final int indexNum=i;
                 } catch (NumberFormatException e) {
@@ -60,15 +60,35 @@ public class Main {
                 try {
                     Integer.parseInt(String.valueOf(subs.charAt(j)));
                     number = true;
+                    System.out.println("There's a number in SUBs.Test3");
+                    System.out.println("There's a number char at index " + j);
+                    ending = j - 1;
+                    break;
+
                 } catch (NumberFormatException e) {
                     number = false;
+                    System.out.println("There's NON number char at index " + j);
+
                 }
+            }
+                /*
                 if (number) {
                     ending = j - 1;
                     break;
                 }
+
+                 */
+            //checking subs for uppercase
+            subs = S.substring(beginning, ending);
+            if (uppercase(subs)){
+                System.out.println("Password is: " + subs);
+            }else {
+                System.out.println("Something is wrong in the above code...");
+
             }
-            //too many for loops (inside) - need to separate
+
+
+            /*
             for (int a = beginning; a < ending; a++) {
                 if (Character.isUpperCase(subs.charAt(a))) {
                     subs = S.substring(beginning, ending);
@@ -79,6 +99,8 @@ public class Main {
                     break;
                 }
             }
+
+             */
         }
     }
 
