@@ -78,8 +78,11 @@ public class Main {
                 }
 
                  */
-            //checking subs for uppercase
+      //CODE logically correct until here:
+            //checking subs for uppercase:
+            //this assignment is wrong - takes string from 0 index the very beginning....
             subs = S.substring(beginning, ending);
+            System.out.println("This is the substring from the beginning to the end: "+ subs);
             if (uppercase(subs)){
                 System.out.println("Password is: " + subs);
             }else {
