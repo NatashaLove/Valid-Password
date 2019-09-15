@@ -6,14 +6,15 @@ public class Main {
    public static int separator=0;// index of a char which is a number(int) and separates strings- at the end of a string
    public static int beginning;
    public static int ending;
-   public static int indexNum;
+  // public static int indexNum;
     //String S="";
+ //because it's globally = "" - the result after doing seprate metods is null.. need to manipulate with variables- make them equal to values after methods..
+ //or better separate a substring class and ith getters-setters have the correct values assigned..
    public static String subs = "";
    public static String subs1="";
 
     public static void main(String[] args) {
         // write your code here
-
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your password.");
@@ -29,6 +30,8 @@ public class Main {
         //if string contains Uppercase (meets one condition) - look for a number in the string:
         else if (uppercase(S)) {
             //make this for-loop - a method for finding the beginning of substring
+            subBegin(S);
+            /*
             for (int i = 0; i < S.length(); i++) {
                 boolean number;
                 //checking if chars are numbers
@@ -56,8 +59,9 @@ public class Main {
                     System.out.println("There's NON number char at index " + beginning+ ".Test2. "+ beginning+ " is equal to "+i);
                 }
 
-                 */
+
             }
+        */
 //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
             for (int j = 0; j < subs.length(); j++) {
@@ -136,7 +140,7 @@ Returns the index within this string of the first occurrence of the specified su
                  */
 
 
-
+//PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
 
 
     //check if there is uppercase- method
@@ -157,7 +161,7 @@ Returns the index within this string of the first occurrence of the specified su
    }
 
     //make this for-loop - a method for finding the beginning of substring
-    public void subBegin(String Str) {
+    public static void subBegin(String Str) {
        for (int i = 0; i < Str.length(); i++) {
            boolean number;
            //checking if chars are numbers
@@ -189,7 +193,7 @@ Returns the index within this string of the first occurrence of the specified su
     }
     //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
-    public void subEnd(String Str) {
+    public static void subEnd(String Str) {
         for (int j = 0; j < Str.length(); j++) {
             boolean number;
             try {
