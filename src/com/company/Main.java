@@ -3,17 +3,18 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+   public static int separator=0;// index of a char which is a number(int) and separates strings- at the end of a string
+   public static int beginning;
+   public static int ending;
+   public static int indexNum;
+    //String S="";
+   public static String subs = "";
+   public static String subs1="";
 
     public static void main(String[] args) {
         // write your code here
 
-        int separator=0;// index of a char which is a number(int) and separates strings- at the end of a string
-        int beginning;
-        int ending;
-        int indexNum;
-        //String S="";
-        String subs = "";
-        String subs1="";
+
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your password.");
 
@@ -27,6 +28,7 @@ public class Main {
 
         //if string contains Uppercase (meets one condition) - look for a number in the string:
         else if (uppercase(S)) {
+            //make this for-loop - a method for finding the beginning of substring
             for (int i = 0; i < S.length(); i++) {
                 boolean number;
                 //checking if chars are numbers
@@ -35,7 +37,7 @@ public class Main {
                     number = true;
                     System.out.println("There're numbers only in main string.Test1");
                     //index of number in the string password
-                   indexNum=i;
+                   //indexNum=i;
                 } catch (NumberFormatException e) {
                     number = false;
                     System.out.println("There's NON number char.Test1");
@@ -56,7 +58,7 @@ public class Main {
 
                  */
             }
-//TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS
+//TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
             for (int j = 0; j < subs.length(); j++) {
                 boolean number;
@@ -100,6 +102,7 @@ Returns the index within this string of the first occurrence of the specified su
             }else {
                 //if it's not
                 System.out.println("not uppercase..bad string..");
+                subs1=""; // so the bad string doesn't get compared
                 //should repeat (for the rest of the string - the same loop)
 
             }
@@ -118,6 +121,7 @@ Returns the index within this string of the first occurrence of the specified su
             }
 
              */
+            //all code to check subs - before this bracket(inside else if)
         }
     }
 
@@ -150,5 +154,62 @@ Returns the index within this string of the first occurrence of the specified su
         }
        final boolean uCase1 = uCase;
        return uCase1;
+   }
+
+    //make this for-loop - a method for finding the beginning of substring
+    public void subBegin(String Str) {
+       for (int i = 0; i < Str.length(); i++) {
+           boolean number;
+           //checking if chars are numbers
+           try {
+               Integer.parseInt(String.valueOf(Str.charAt(i)));
+               number = true;
+               System.out.println("There're numbers only in main string.Test1");
+               //index of number in the string password
+               //indexNum=i;
+           } catch (NumberFormatException e) {
+               number = false;
+               System.out.println("There's NON number char.Test1");
+
+               beginning = i;
+               subs = Str.substring(beginning);
+               System.out.println("There's NON number char at index " + beginning + ".Test2. " + beginning + " is equal to " + i);
+                break;//because found the first NON number char
+           }
+                /*
+                if (!number) {
+                    //the first non num - char - beginning of the substring
+                    subs = S.substring(i);
+                    beginning = i;
+                    System.out.println("There's NON number char at index " + beginning+ ".Test2. "+ beginning+ " is equal to "+i);
+                }
+
+                 */
+       }
     }
+    //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
+//checking substring for more numbers char
+    public void subEnd(String Str) {
+        for (int j = 0; j < Str.length(); j++) {
+            boolean number;
+            try {
+                Integer.parseInt(String.valueOf(Str.charAt(j)));
+                number = true;
+                System.out.println("There's a number in SUBs.Test3");
+                System.out.println("There's a number char at index " + j);
+                //ending is a number!
+                //next subs can loop starting after ending! - (ending+1)-from separator
+                ending = j;
+                subs1 = Str.substring(0, ending);
+                separator = ending + 1;
+                break;
+
+            } catch (NumberFormatException e) {
+                number = false;
+                System.out.println("There's NON number char at index " + j);
+
+            }
+        }
+    }
+
 }
