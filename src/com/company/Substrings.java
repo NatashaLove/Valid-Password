@@ -11,6 +11,14 @@ public class Substrings {
     static private String subs = "";
     static private String subs1="";
 
+    //Constructor
+    Substrings(){
+
+    }
+    Substrings(String S){
+        //construct substring..(for?)
+    }
+
 
     //methods
     //check if there is uppercase- method

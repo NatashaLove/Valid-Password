@@ -23,14 +23,14 @@ public class Main {
         // boolean uppercase=false;
         // uppercase(S);
 
-        if (!uppercase(S)) {
-            System.out.println("Invalid Password. Please try again.");
+        if (!Substrings.uppercase(S)) {
+            System.out.println("Invalid Password. Password should contain Uppercase letter. Please try again.");
         }
 
         //if string contains Uppercase (meets one condition) - look for a number in the string:
-        else if (uppercase(S)) {
+        else if (Substrings.uppercase(S)) {
             //make this for-loop - a method for finding the beginning of substring
-            subBegin(S);
+            Substrings.subBegin(S);
             /*
             for (int i = 0; i < S.length(); i++) {
                 boolean number;
@@ -101,7 +101,7 @@ Returns the index within this string of the first occurrence of the specified su
             //checking subs for uppercase:
 
             System.out.println("This is the substring from the beginning to the end: "+ subs1);
-            if (uppercase(subs1)){
+            if (Substrings.uppercase(subs1)){
                 System.out.println("Password is: " + subs1);
             }else {
                 //if it's not
@@ -142,7 +142,7 @@ Returns the index within this string of the first occurrence of the specified su
 
 //PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
 
-
+/*
     //check if there is uppercase- method
    public static boolean uppercase (String St){
        boolean uCase = false;
@@ -188,9 +188,10 @@ Returns the index within this string of the first occurrence of the specified su
                     System.out.println("There's NON number char at index " + beginning+ ".Test2. "+ beginning+ " is equal to "+i);
                 }
 
-                 */
+
        }
     }
+    /*
     //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
     public static void subEnd(String Str) {
@@ -215,5 +216,7 @@ Returns the index within this string of the first occurrence of the specified su
             }
         }
     }
+
+     */
 
 }
