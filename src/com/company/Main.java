@@ -23,14 +23,21 @@ public class Main {
         // boolean uppercase=false;
         // uppercase(S);
 
-        if (!Substrings.uppercase(S)) {
+        if (!uppercase(S)) {
             System.out.println("Invalid Password. Password should contain Uppercase letter. Please try again.");
         }
 
         //if string contains Uppercase (meets one condition) - look for a number in the string:
-        else if (Substrings.uppercase(S)) {
+        else if (uppercase(S)) {
+            //here create ne obj substring with parameter (S) and for loop - method -inside the constructor-to find the beginning of substring
+            Substrings substrings=new Substrings(S);
+
+// next use the obj substring with methods from its class - ending etc..
+
+
+
             //make this for-loop - a method for finding the beginning of substring
-            Substrings.subBegin(S);
+           // Substrings.subBegin(S);
             /*
             for (int i = 0; i < S.length(); i++) {
                 boolean number;
@@ -64,6 +71,15 @@ public class Main {
         */
 //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
+
+            subs=substrings.toString();
+
+            //Prints address... of the obj in memory.. not the string...
+            //need to change smth..- wrong result
+
+            System.out.println("This is subs after converting substrings.ToString: "+subs);
+            System.out.println("This is substring itself: "+substrings);
+
             for (int j = 0; j < subs.length(); j++) {
                 boolean number;
                 try {
@@ -139,10 +155,7 @@ Returns the index within this string of the first occurrence of the specified su
 
                  */
 
-
-//PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
-
-/*
+//leave the uppercase method here - because it checks all the entered pass initially to see if valid or not..
     //check if there is uppercase- method
    public static boolean uppercase (String St){
        boolean uCase = false;
@@ -160,6 +173,9 @@ Returns the index within this string of the first occurrence of the specified su
        return uCase1;
    }
 
+    //PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
+
+/*
     //make this for-loop - a method for finding the beginning of substring
     public static void subBegin(String Str) {
        for (int i = 0; i < Str.length(); i++) {

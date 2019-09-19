@@ -15,13 +15,15 @@ public class Substrings {
     Substrings(){
 
     }
+    // to create object substring- with ready beginning
     Substrings(String S){
-        //construct substring..(for?)
+        //construct substring..
+        subBegin(S);
+
     }
 
 
-    //methods
-    //check if there is uppercase- method
+    //check if there is uppercase- method - in substrings
     public static boolean uppercase (String St){
         boolean uCase = false;
         for (int i = 0; i < St.length(); i++) {
