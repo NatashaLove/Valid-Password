@@ -4,27 +4,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-   public static int separator=0;// index of a char which is a number(int) and separates strings- at the end of a string
-   public static int beginning;
-   public static int ending;
-  // public static int indexNum;
+    public static int separator = 0;// index of a char which is a number(int) and separates strings- at the end of a string
+    public static int beginning;
+    public static int ending;
+    // public static int indexNum;
     //String S="";
- //because it's globally = "" - the result after doing separate methods is null.. need to manipulate with variables- make them equal to values after methods..
- //or better separate a substring class and ith getters-setters have the correct values assigned..
-   public static String subs = "";
-   public static String subs1="";
+    //because it's globally = "" - the result after doing separate methods is null.. need to manipulate with variables- make them equal to values after methods..
+    //or better separate a substring class and ith getters-setters have the correct values assigned..
+    public static String subs = "";
+    public static String subs1 = "";
+    public static ArrayList<String> substrs = new ArrayList<>();
 
     public static void main(String[] args) {
         // write your code here
 
-        ArrayList <String> substrs = new ArrayList<>();
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your password.");
 
         String S = input.nextLine();
-        // boolean uppercase=false;
-        // uppercase(S);
 
         if (!uppercase(S)) {
             System.out.println("Invalid Password. Password should contain Uppercase letter. Please try again.");
@@ -33,37 +31,72 @@ public class Main {
         //if string contains Uppercase (meets one condition) - look for a number in the string:
         else if (uppercase(S)) {
             //here create ne obj substring with parameter (S) and for loop - method -inside the constructor-to find the beginning of substring
-            Substrings substrings=new Substrings(S);
-            do {
+            Substrings substrings = new Substrings(S);
+
+            for (int i = 0; i < S.length(); i++) {
+                validSubstr(S);
+            }
+            System.out.println("The possible passwords are: "+ substrs);
+
+        }
+    }
+
+    //leave the uppercase method here - because it checks all the entered pass initially to see if valid or not..
+    //check if there is uppercase- method
+    public static boolean uppercase(String St) {
+        boolean uCase = false;
+        for (int i = 0; i < St.length(); i++) {
+
+            if (Character.isUpperCase(St.charAt(i)))
+            // if (Character.isUpperCase(S(i)){}
+            {
+                uCase = true;
+                break;//if at least 1 uppercase - good, enough.
+                //System.out.println("Invalid Password. Please try again.");
+            }
+        }
+        final boolean uCase1 = uCase;
+        return uCase1;
+    }
+
+    //make it a local method taking substrings beginning with separator:
+    //for loop to iterate through original String looking for valid substrings as long as it lasts..
+    public static void validSubstr(String S) {
+        for (int i = Substrings.getSeparator(); i < S.length(); i++) {
+            if (uppercase(Substrings.getSubs1())) {
+                System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
+                //String s1 = Substrings.getSubs1();
+                //  if (uppercase(substrings.toString()))
+                substrs.add(Substrings.getSubs1()); // adding subs to list
+                //String s2 = S.substring(Substrings.getSeparator());
+                System.out.println("separator is: " + Substrings.getSeparator());
+                break;
+            } else {
+                System.out.println("BAD substring.. proceeding to next..");
+                //  String s2 = S.substring(Substrings.getSeparator());
+                //this prints the index
+                System.out.println("separator index is: " + Substrings.getSeparator());
+                // System.out.println("separator char is: "+ Substrings.getSeparator());
+                break;
+
+            }
+        }
+    }
+}
+    //PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
+
+    // do {
 
 
-                //for loop to iterate through original String looking for valid substrings as long as it lasts..
-                for (int i = Substrings.getSeparator(); i < S.length(); i++) {
-                    if (uppercase(Substrings.getSubs1())) {
-                        System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
-                        String s1 = Substrings.getSubs1();
-                        //  if (uppercase(substrings.toString()))
-                        substrs.add(s1); // adding subs to list
-                        String s2 = S.substring(Substrings.getSeparator());
-                        System.out.println("separator is: "+ Substrings.getSeparator());
-                    } else {
-                        System.out.println("BAD substring.. proceeding to next..");
-                        String s2 = S.substring(Substrings.getSeparator());
-                        //this prints the index
-                        System.out.println("separator index is: "+ Substrings.getSeparator());
-                       // System.out.println("separator char is: "+ Substrings.getSeparator());
-
-                    }
-                }
-            } while (Substrings.getSeparator()<S.length());
+    // } while (Substrings.getSeparator()<S.length());// separator doesn't necesserily ever equals to length- so loop is infinite..
 
 
 // next use the obj substring with methods from its class - ending etc..
 
 
 
-            //make this for-loop - a method for finding the beginning of substring
-           // Substrings.subBegin(S);
+    //make this for-loop - a method for finding the beginning of substring
+    // Substrings.subBegin(S);
             /*
             for (int i = 0; i < S.length(); i++) {
                 boolean number;
@@ -167,40 +200,7 @@ Returns the index within this string of the first occurrence of the specified su
             }
 
              */
-            //all code to check subs - before this bracket(inside else if)
-        }
-    }
-
-
-                /*
-                if (!number){
-                    beginning=i;
-                    System.out.println("Password will start with "+S.charAt(i));
-                    subs=S.substring(i);
-                }
-
-                 */
-
-//leave the uppercase method here - because it checks all the entered pass initially to see if valid or not..
-    //check if there is uppercase- method
-   public static boolean uppercase (String St){
-       boolean uCase = false;
-       for (int i = 0; i < St.length(); i++) {
-
-            if (Character.isUpperCase(St.charAt(i)))
-            // if (Character.isUpperCase(S(i)){}
-            {
-                uCase = true;
-                break;//if at least 1 uppercase - good, enough.
-                //System.out.println("Invalid Password. Please try again.");
-            }
-        }
-       final boolean uCase1 = uCase;
-       return uCase1;
-   }
-
-    //PROBABLY BETTER TO CREATE A SEPARATE SUBSTRING CLASS -AND HAVE A CONSTRUCTOR THERE + ALL THE METHODS TO BUILD AND TEST SUBSTRINGS
-
+    //all code to check subs - before this bracket(inside else if)
 /*
     //make this for-loop - a method for finding the beginning of substring
     public static void subBegin(String Str) {
@@ -261,4 +261,3 @@ Returns the index within this string of the first occurrence of the specified su
 
      */
 
-}
