@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -8,13 +9,15 @@ public class Main {
    public static int ending;
   // public static int indexNum;
     //String S="";
- //because it's globally = "" - the result after doing seprate metods is null.. need to manipulate with variables- make them equal to values after methods..
+ //because it's globally = "" - the result after doing separate methods is null.. need to manipulate with variables- make them equal to values after methods..
  //or better separate a substring class and ith getters-setters have the correct values assigned..
    public static String subs = "";
    public static String subs1="";
 
     public static void main(String[] args) {
         // write your code here
+
+        ArrayList <String> substrs = new ArrayList<>();
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your password.");
@@ -31,6 +34,14 @@ public class Main {
         else if (uppercase(S)) {
             //here create ne obj substring with parameter (S) and for loop - method -inside the constructor-to find the beginning of substring
             Substrings substrings=new Substrings(S);
+            if (uppercase(Substrings.getSubs1())) {
+                System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
+                String s1 = Substrings.getSubs1();
+                //  if (uppercase(substrings.toString()))
+                substrs.add(s1); // adding subs to list
+            }else {
+                System.out.println("BAD substring.. proceeding to next..");
+            }
 
 // next use the obj substring with methods from its class - ending etc..
 
@@ -71,7 +82,7 @@ public class Main {
         */
 //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
 //checking substring for more numbers char
-
+/*
             subs=substrings.toString();
 
             //Prints address... of the obj in memory.. not the string...
@@ -79,7 +90,7 @@ public class Main {
 
             System.out.println("This is subs after converting substrings.ToString: "+subs);
             System.out.println("This is substring itself: "+substrings);
-
+/*
             for (int j = 0; j < subs.length(); j++) {
                 boolean number;
                 try {
@@ -112,7 +123,7 @@ int	indexOf(String str)
 Returns the index within this string of the first occurrence of the specified substring.
 int indexOf(String str, int fromIndex)
 Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.
-                 */
+
   //!!MAKE METHOD OF IT FOR ALL OTHER SUBS!
             //checking subs for uppercase:
 

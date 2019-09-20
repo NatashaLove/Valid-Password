@@ -12,10 +12,8 @@ public class Substrings {
     static private String subs1="";
 
     //Constructor
-    Substrings(){
-
-    }
-    // to create object substring- with ready beginning
+    Substrings(){   }
+    // to create object substring- with ready beginning and ending + checking if it's valid or not
     Substrings(String S){
         //construct substring..
         //setBeginning();
@@ -27,10 +25,13 @@ public class Substrings {
 
         //check the ready subs for uppercase
        if (uppercase(getSubs1())){
-           System.out.println("This is a good substring: "+ getSubs1());
+           System.out.println("This is a Valid substring: "+ getSubs1());
+           // and save to a list of valid subs to compare them later
+
+
        } else   {
            //for this separator already shouldn't be=0, but go through method ending and find the end of the previous substring:
-           System.out.println("This is a BAD substring: "+ getSubs1());
+           System.out.println("This is a NOT Valid substring: "+ getSubs1());
            setBeginning(getSeparator());
 
        }
@@ -117,15 +118,6 @@ public class Substrings {
                 System.out.println("The substring will start from char: " + getSubs().charAt((getBeginning())));
                 break;//because found the first NON number char
             }
-                /*
-                if (!number) {
-                    //the first non num - char - beginning of the substring
-                    subs = S.substring(i);
-                    beginning = i;
-                    System.out.println("There's NON number char at index " + beginning+ ".Test2. "+ beginning+ " is equal to "+i);
-                }
-
-                 */
         }
     }
     //TRY TO MAKE METHOD FOM THIS FOR OTHER SUBS- starting with separator(instead of 0) - for all following substrings in between ints-to find the ending of substring
