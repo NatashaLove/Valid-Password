@@ -18,10 +18,43 @@ public class Substrings {
     // to create object substring- with ready beginning
     Substrings(String S){
         //construct substring..
+
         subBegin(S);
+        //test
+        System.out.println("This is message from substrings class inside the constructor.");
+        //setBeginning();
+       if (uppercase(getSubs())){
+           System.out.println("This is a good substring");
+       } else   {
+           //for this separator already shouldn't be=0, but go through method ending and find the end of the previous substring:
+           setBeginning(getSeparator());
+       }
 
     }
 
+    public static int getBeginning() {
+        return beginning;
+    }
+
+    public static void setBeginning(int beginning) {
+        Substrings.beginning = beginning;
+    }
+
+    public static String getSubs() {
+        return subs;
+    }
+
+    public static void setSubs(String subs) {
+        Substrings.subs = subs;
+    }
+
+    public static void setSeparator(int separator) {
+        Substrings.separator = separator;
+    }
+
+    public static int getSeparator() {
+        return separator;
+    }
 
     //check if there is uppercase- method - in substrings
     public static boolean uppercase (String St){
@@ -56,8 +89,11 @@ public class Substrings {
                 System.out.println("There's NON number char.Test1");
 
                 beginning = i;
-                subs = Str.substring(beginning);
-                System.out.println("There's NON number char at index " + beginning + ".Test2. " + beginning + " is equal to " + i);
+                setBeginning(i);
+                subs = Str.substring(getBeginning());
+                setSubs(Str.substring(getBeginning()));
+                System.out.println("There's NON number char at index " + getBeginning() + ".Test2. " + getBeginning() + " is equal to " + i);
+                System.out.println("The substring will start from char: " + getSubs().charAt((getBeginning())));
                 break;//because found the first NON number char
             }
                 /*
