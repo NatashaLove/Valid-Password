@@ -34,14 +34,29 @@ public class Main {
         else if (uppercase(S)) {
             //here create ne obj substring with parameter (S) and for loop - method -inside the constructor-to find the beginning of substring
             Substrings substrings=new Substrings(S);
-            if (uppercase(Substrings.getSubs1())) {
-                System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
-                String s1 = Substrings.getSubs1();
-                //  if (uppercase(substrings.toString()))
-                substrs.add(s1); // adding subs to list
-            }else {
-                System.out.println("BAD substring.. proceeding to next..");
-            }
+            do {
+
+
+                //for loop to iterate through original String looking for valid substrings as long as it lasts..
+                for (int i = 0; i < S.length(); i++) {
+                    if (uppercase(Substrings.getSubs1())) {
+                        System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
+                        String s1 = Substrings.getSubs1();
+                        //  if (uppercase(substrings.toString()))
+                        substrs.add(s1); // adding subs to list
+                        String s2 = S.substring(Substrings.getSeparator());
+                        System.out.println("separator is: "+ Substrings.getSeparator());
+                    } else {
+                        System.out.println("BAD substring.. proceeding to next..");
+                        String s2 = S.substring(Substrings.getSeparator());
+                        //this prints the index
+                        System.out.println("separator index is: "+ Substrings.getSeparator());
+                       // System.out.println("separator char is: "+ Substrings.getSeparator());
+
+                    }
+                }
+            } while (true);
+
 
 // next use the obj substring with methods from its class - ending etc..
 
