@@ -18,16 +18,21 @@ public class Substrings {
     // to create object substring- with ready beginning
     Substrings(String S){
         //construct substring..
-
-        subBegin(S);
+        //setBeginning();
+        subBegin(S);// taking original string
         //test
         System.out.println("This is message from substrings class inside the constructor.");
-        //setBeginning();
-       if (uppercase(getSubs())){
-           System.out.println("This is a good substring");
+       //setEnding
+        subEnd(getSubs());//taking the fresh substring to find its end
+
+        //check the ready subs for uppercase
+       if (uppercase(getSubs1())){
+           System.out.println("This is a good substring: "+ getSubs1());
        } else   {
            //for this separator already shouldn't be=0, but go through method ending and find the end of the previous substring:
+           System.out.println("This is a BAD substring: "+ getSubs1());
            setBeginning(getSeparator());
+
        }
 
     }
@@ -54,6 +59,22 @@ public class Substrings {
 
     public static int getSeparator() {
         return separator;
+    }
+
+    public static String getSubs1() {
+        return subs1;
+    }
+
+    public static void setSubs1(String subs1) {
+        Substrings.subs1 = subs1;
+    }
+
+    public static int getEnding() {
+        return ending;
+    }
+
+    public static void setEnding(int ending) {
+        Substrings.ending = ending;
     }
 
     //check if there is uppercase- method - in substrings
@@ -120,8 +141,11 @@ public class Substrings {
                 //ending is a number!
                 //next subs can loop starting after ending! - (ending+1)-from separator
                 ending = j;
+                setEnding(j);
                 subs1 = Str.substring(0, ending);
+                setSubs1(Str.substring(0, ending));
                 separator = ending + 1;
+                setSeparator(ending + 1);
                 break;
 
             } catch (NumberFormatException e) {
