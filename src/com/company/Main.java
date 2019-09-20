@@ -38,7 +38,7 @@ public class Main {
 
 
                 //for loop to iterate through original String looking for valid substrings as long as it lasts..
-                for (int i = 0; i < S.length(); i++) {
+                for (int i = Substrings.getSeparator(); i < S.length(); i++) {
                     if (uppercase(Substrings.getSubs1())) {
                         System.out.println("Printing in MAIN: " + Substrings.getSubs1());//working!!!
                         String s1 = Substrings.getSubs1();
@@ -55,7 +55,7 @@ public class Main {
 
                     }
                 }
-            } while (true);
+            } while (Substrings.getSeparator()<S.length());
 
 
 // next use the obj substring with methods from its class - ending etc..
