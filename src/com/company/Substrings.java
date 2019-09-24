@@ -134,10 +134,16 @@ public class Substrings {
                 //next subs can loop starting after ending! - (ending+1)-from separator
                 ending = j;
                 setEnding(j);
-                subs1 = Str.substring(0, ending);
-                setSubs1(Str.substring(0, ending));
+                //here substring should start ith var beginning - getBeginning,
+                // NOT 0 - otherwise it goes only through the first substring
+                // - always setting separator to 0 too
                 separator = ending + 1;
-                setSeparator(ending + 1);
+                setSeparator(getEnding() + 1);
+                subs1 = Str.substring(getBeginning(), getEnding());
+                setSubs1(Str.substring(getBeginning(), getEnding()));
+                // after changing from 0 to vars - still only the 1st substring is displayed..
+                //need to change something between beginning and separator in the method above....
+
                 break;
 
             } catch (NumberFormatException e) {
